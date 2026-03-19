@@ -135,6 +135,16 @@
     li{margin:6px 0;font-size:13px;color:#c5cee5;padding-left:14px;position:relative}
     li:before{content:"•";position:absolute;left:0;color:var(--accent);top:0}
 
+    /* NEW: badge for the new case study card */
+    .new-badge{
+      display:inline-block;
+      font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+      background:linear-gradient(135deg,#f9b234,#ff6f61);
+      color:#050816;font-weight:700;
+      padding:3px 8px;border-radius:999px;
+      margin-left:8px;vertical-align:middle;
+    }
+
     footer{
       border-top:1px solid rgba(255,255,255,.04);
       padding:18px 0 28px;color:var(--muted);font-size:12px
@@ -172,7 +182,7 @@
             <p class="tag">Senior Product Manager · Enterprise Platforms · AI-Powered Commerce</p>
             <p class="bio">
               I build enterprise-grade products across digital commerce, platform integrations, and customer experience.
-              I’m strongest at turning ambiguous business problems into crisp product strategy, aligned roadmaps,
+              I'm strongest at turning ambiguous business problems into crisp product strategy, aligned roadmaps,
               and measurable outcomes.
             </p>
 
@@ -202,9 +212,7 @@
 
           <div class="photoCard">
             <div class="photoInner">
-              <!-- Replace with your hosted photo URL later -->
-             <img src="profile.jpg" alt="Nilanjana Chatterjee portrait" />
-
+              <img src="profile.jpg" alt="Nilanjana Chatterjee portrait" />
             </div>
             <div class="photoTag">NYC Metro · Open to Senior PM roles</div>
           </div>
@@ -273,6 +281,29 @@
         </div>
 
         <div class="grid">
+
+          <!-- ✅ NEW CASE STUDY CARD -->
+          <div class="card">
+            <div class="row">
+              <div class="h">
+                Wix × Zapier × Kajabi Integration Fix · Independent Troubleshooting
+                <span class="new-badge">New</span>
+              </div>
+              <div class="meta">No-Code · Automation</div>
+            </div>
+            <p class="sub">
+              Diagnosed and resolved an undocumented legacy form incompatibility that made 8 of 9 Wix forms invisible to Zapier — blocking automated lead capture into Kajabi.
+            </p>
+            <ul>
+              <li>Systematically ruled out form, auth, and connection issues to isolate the failure to Zapier's API layer.</li>
+              <li>Researched across Claude, ChatGPT, Grok, and Gemini — synthesized insights and identified a fix none of them surfaced.</li>
+              <li>Resolved using an undocumented Zapier trigger string, connecting all 9 forms at $0 additional cost with zero rebuilds.</li>
+            </ul>
+            <div class="ctaRow" style="margin-top:12px;">
+              <a class="btn" href="pm-case-study.html">Read full case study →</a>
+            </div>
+          </div>
+
           <div class="card">
             <div class="row">
               <div class="h">TaxCalc Carrier App Expansion · Product Strategy & Integration</div>
@@ -287,13 +318,9 @@
               <li>Proposed unified backend contracts so one backend could serve multiple commerce platforms.</li>
             </ul>
             <div class="ctaRow" style="margin-top:12px;">
-  <a class="btn" href="taxcalc.html">Read full case study →</a>
-</div>
-
-            
+              <a class="btn" href="taxcalc.html">Read full case study →</a>
+            </div>
           </div>
-
-          
 
           <div class="card">
             <div class="row">
@@ -318,6 +345,7 @@
               <li>Reduced manual test design time and improved edge-case coverage for critical journeys.</li>
             </ul>
           </div>
+
         </div>
       </div>
     </section>
@@ -333,7 +361,7 @@
         <div class="grid">
           <div class="card">
             <div class="row">
-              <div class="h">MS · Business Analytics · Saint Peter’s University</div>
+              <div class="h">MS · Business Analytics · Saint Peter's University</div>
             </div>
           </div>
           <div class="card">
@@ -361,7 +389,7 @@
       <div class="wrap">
         <div class="sectionHead">
           <div class="k">Next step</div>
-          <h2>Let’s connect</h2>
+          <h2>Let's connect</h2>
           <p>Hiring for Senior PM / Product Lead roles, or want to discuss commerce platform strategy?</p>
         </div>
 
