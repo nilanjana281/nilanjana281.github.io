@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — Wix × Zapier × Kajabi Integration</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --border: #1e1e2e;
+    --accent: #e8ff47;
+    --accent2: #ff6b35;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    padding: 3rem;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.1s;
+  }
+
+  .nav-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .nav-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    background: rgba(232,255,71,0.08);
+    border: 1px solid rgba(232,255,71,0.2);
+    padding: 0.3rem 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 0;
+  }
+
+  .case-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.3s;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--white);
+    max-width: 14ch;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 55ch;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.55s;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .meta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .meta-value {
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  .meta-value.highlight {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* Pipeline visual */
+  .pipeline-section {
+    padding: 5rem 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .pipeline {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .pipe-node {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    position: relative;
+    transition: border-color 0.3s ease;
+  }
+
+  .pipe-node:hover {
+    border-color: var(--accent);
+  }
+
+  .pipe-node-icon {
+    font-size: 1.4rem;
+  }
+
+  .pipe-node-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .pipe-node-desc {
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+
+  .pipe-arrow {
+    color: var(--muted);
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+  }
+
+  .pipe-broken {
+    border-color: var(--accent2);
+    position: relative;
+  }
+
+  .pipe-broken::before {
+    content: 'BLOCKED';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    background: var(--accent2);
+    color: var(--bg);
+    padding: 0.15rem 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Content sections */
+  .content-section {
+    padding: 5rem 3rem;
+    border-bottom: 1px solid var(--border);
+    max-width: 900px;
+  }
+
+  .content-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+
+  .content-section p {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* AI table */
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    margin: 2rem 0;
+    border: 1px solid var(--border);
+  }
+
+  .ai-card {
+    background: var(--surface);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .ai-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .ai-suggestion {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .ai-verdict {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  .ai-verdict.no {
+    background: rgba(255,107,53,0.1);
+    color: var(--accent2);
+    border: 1px solid rgba(255,107,53,0.3);
+  }
+
+  .ai-verdict.maybe {
+    background: rgba(232,255,71,0.06);
+    color: var(--accent);
+    border: 1px solid rgba(232,255,71,0.2);
+  }
+
+  /* Code block */
+  .code-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .code-block::before {
+    content: 'THE FIX';
+    position: absolute;
+    top: -1px;
+    right: 1.5rem;
+    font-size: 0.6rem;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.2rem 0.6rem;
+    letter-spacing: 0.15em;
+    font-weight: 500;
+  }
+
+  /* Results */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+
+  .result-card {
+    background: var(--surface);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+
+  .result-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Takeaways */
+  .takeaway-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 2rem 0;
+  }
+
+  .takeaway {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+
+  .takeaway-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    margin-top: 0.3rem;
+    letter-spacing: 0.1em;
+  }
+
+  .takeaway-title {
+    font-size: 0.9rem;
+    color: var(--white);
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+  }
+
+  .takeaway-body {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* Skills */
+  .skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 2rem 0;
+  }
+
+  .skill-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.4rem 1rem;
+    letter-spacing: 0.08em;
+    transition: all 0.2s ease;
+  }
+
+  .skill-tag:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Footer */
+  footer {
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-accent {
+    color: var(--accent);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); }
+
+  @media (max-width: 600px) {
+    .hero, .pipeline-section, .content-section, footer { padding: 2rem 1.5rem; }
+    .hero-meta { flex-wrap: wrap; gap: 1.5rem; }
+    h1 { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <nav class="nav">
+    <span class="nav-label">PM Portfolio · Case Study</span>
+    <span class="nav-tag">2025</span>
+  </nav>
+
+  <div class="hero-content">
+    <div class="case-number">// CASE-001</div>
+    <h1>The <em>Undocumented</em> Fix Nobody Found</h1>
+    <p class="hero-sub" style="opacity:0;animation:fadeUp 0.8s ease forwards 0.5s">
+      How I debugged a broken Wix → Zapier → Kajabi integration using 4 AI tools, independent research, and a trigger string that exists nowhere in the docs.
+    </p>
+  </div>
+
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-label">Role</span>
+      <span class="meta-value">Product Manager</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Tools</span>
+      <span class="meta-value">Wix · Zapier · Kajabi</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Additional Cost</span>
+      <span class="meta-value highlight">$0</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Forms Rebuilt</span>
+      <span class="meta-value highlight">0 of 9</span>
+    </div>
+  </div>
+</section>
+
+<section class="pipeline-section">
+  <div class="section-label">The Pipeline</div>
+  <div class="pipeline">
+    <div class="pipe-node">
+      <span class="pipe-node-icon">🌐</span>
+      <span class="pipe-node-name">Wix Site</span>
+      <span class="pipe-node-desc">Footer subscribe form</span>
+    </div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-node pipe-broken">
+      <span class="pipe-node-icon">⚡</span>
+      <span class="pipe-node-name">Zapier</span>
+      <span class="pipe-node-desc">Trigger: Form submitted</span>
+    </div>
+    <span class="pipe-arrow">→</span>
+    <div class="pipe-node">
+      <span class="pipe-node-icon">🎯</span>
+      <span class="pipe-node-name">Kajabi</span>
+      <span class="pipe-node-desc">Create contact</span>
+    </div>
+  </div>
+  <p style="margin-top:1.5rem; font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--muted);">
+    // Zapier could not detect the Wix form. 8 of 9 forms were invisible.
+  </p>
+</section>
+
+<section class="content-section">
+  <div class="section-label">The Problem</div>
+  <h2>Zapier Couldn't See the Form</h2>
+  <p>I was building a lead capture automation: user submits their name and email on a Wix footer form → Zapier triggers → contact created in Kajabi. Simple in theory.</p>
+  <p>But when configuring the trigger in Zapier, only one form appeared — a lead magnet form. The footer subscribe form, live since April 2024 with real submissions, was completely invisible. 8 out of 9 forms: gone.</p>
+  <p>The form was working perfectly. Submissions were being captured in Wix. The Wix app was connected to Zapier. Yet Zapier couldn't find it.</p>
+</section>
+
+<section class="content-section">
+  <div class="section-label">Research Phase</div>
+  <h2>Four AIs. Four Dead Ends.</h2>
+  <p>I consulted four AI tools to get different perspectives. Each gave a technically valid answer. None worked within my constraints.</p>
+
+  <div class="ai-grid">
+    <div class="ai-card">
+      <span class="ai-name">Claude</span>
+      <span class="ai-suggestion">Rebuild all 9 forms using new Wix Forms system</span>
+      <span class="ai-verdict no">❌ Too much work</span>
+    </div>
+    <div class="ai-card">
+      <span class="ai-name">ChatGPT</span>
+      <span class="ai-suggestion">Use Zapier Webhooks to receive form data</span>
+      <span class="ai-verdict no">❌ Requires paid plan</span>
+    </div>
+    <div class="ai-card">
+      <span class="ai-name">Grok</span>
+      <span class="ai-suggestion">Switch to Make (Integromat) instead of Zapier</span>
+      <span class="ai-verdict no">❌ Added complexity</span>
+    </div>
+    <div class="ai-card">
+      <span class="ai-name">Gemini</span>
+      <span class="ai-suggestion">Use Wix Automations → Kajabi API directly</span>
+      <span class="ai-verdict maybe">⚠️ Possible but complex</span>
+    </div>
+  </div>
+
+  <p>The AI tools gave me a broad solution space fast. But all of them reasoned from common scenarios. My situation — 9 old forms, free Zapier plan, no rebuild budget — fell outside their training patterns.</p>
+</section>
+
+<section class="content-section">
+  <div class="section-label">The Discovery</div>
+  <h2>Two Form Systems. One Hidden.</h2>
+  <p>I noticed something in Wix's form dashboard: there were two tabs — <strong style="color:var(--white)">"Forms"</strong> and <strong style="color:var(--white)">"Old Forms."</strong> My footer subscribe form was under Old Forms.</p>
+  <p>Wix has two entirely separate form systems. The new system is fully exposed to Zapier. The legacy (old) system is not surfaced in Zapier's UI dropdown at all — even though it still works perfectly on Wix.</p>
+  <p>Zapier's Wix integration simply doesn't show old forms. But they're still accessible — if you know the exact trigger string to type manually.</p>
+
+  <div class="code-block">z_form_submitted_old_wix_forms_and_payments</div>
+
+  <p>By entering this string directly into Zapier's trigger field — bypassing the dropdown entirely — all 9 old Wix forms became accessible immediately. The fix took under 15 minutes once discovered.</p>
+  <p style="font-family:'DM Mono',monospace; font-size:0.75rem; color:var(--muted);">// This string appears in no official Zapier or Wix documentation.</p>
+</section>
+
+<section class="content-section">
+  <div class="section-label">Results</div>
+  <h2>Zero Cost. Zero Rebuilds. Fully Working.</h2>
+
+  <div class="results-grid">
+    <div class="result-card">
+      <span class="result-number">9/9</span>
+      <span class="result-label">Forms Connected</span>
+    </div>
+    <div class="result-card">
+      <span class="result-number">$0</span>
+      <span class="result-label">Additional Cost</span>
+    </div>
+    <div class="result-card">
+      <span class="result-number">0</span>
+      <span class="result-label">Forms Rebuilt</span>
+    </div>
+    <div class="result-card">
+      <span class="result-number">~15m</span>
+      <span class="result-label">Time to Fix</span>
+    </div>
+  </div>
+
+  <p>The full Wix → Zapier → Kajabi pipeline now runs automatically. Every form submission creates a contact in Kajabi in real time. No manual data entry. No new tools. No extra spend.</p>
+</section>
+
+<section class="content-section">
+  <div class="section-label">Takeaways</div>
+  <h2>What This Taught Me</h2>
+
+  <div class="takeaway-list">
+    <div class="takeaway">
+      <span class="takeaway-num">01</span>
+      <div>
+        <div class="takeaway-title">Verify before assuming</div>
+        <div class="takeaway-body">The form was capturing submissions fine. Confirming that early narrowed the failure to the integration layer specifically — not the form, not Kajabi.</div>
+      </div>
+    </div>
+    <div class="takeaway">
+      <span class="takeaway-num">02</span>
+      <div>
+        <div class="takeaway-title">AI tools are research accelerators, not oracles</div>
+        <div class="takeaway-body">Four tools, four valid-but-wrong answers for my constraints. The real fix required going beyond their suggestions entirely. They got me to the right neighborhood — I had to find the door.</div>
+      </div>
+    </div>
+    <div class="takeaway">
+      <span class="takeaway-num">03</span>
+      <div>
+        <div class="takeaway-title">Constraints drive creativity</div>
+        <div class="takeaway-body">No budget and no rebuild appetite forced me to keep looking instead of settling. The constraint was the feature.</div>
+      </div>
+    </div>
+    <div class="takeaway">
+      <span class="takeaway-num">04</span>
+      <div>
+        <div class="takeaway-title">Document the undocumented</div>
+        <div class="takeaway-body">The trigger string exists nowhere in official docs. Finding it and sharing it turns a personal win into something useful for everyone facing the same wall.</div>
+      </div>
+    </div>
+    <div class="takeaway">
+      <span class="takeaway-num">05</span>
+      <div>
+        <div class="takeaway-title">Technical fluency unlocks PM effectiveness</div>
+        <div class="takeaway-body">No engineer needed. Understanding APIs, triggers, and integrations at a conceptual level was enough to diagnose and fix the problem independently.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="section-label">Skills Demonstrated</div>
+  <h2>What This Shows</h2>
+  <div class="skills-wrap">
+    <span class="skill-tag">No-code automation</span>
+    <span class="skill-tag">API & integration debugging</span>
+    <span class="skill-tag">Independent technical problem solving</span>
+    <span class="skill-tag">Multi-tool AI research</span>
+    <span class="skill-tag">Resourcefulness under constraints</span>
+    <span class="skill-tag">Systems thinking</span>
+    <span class="skill-tag">Cost optimization</span>
+    <span class="skill-tag">Documentation</span>
+    <span class="skill-tag">Cross-functional execution</span>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-label">PM Portfolio · <span class="footer-accent">Case Study 001</span></span>
+  <span class="footer-label">Wix × Zapier × Kajabi · <span class="footer-accent">2025</span></span>
+</footer>
+
+</body>
+</html>
