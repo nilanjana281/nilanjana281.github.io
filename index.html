@@ -1,426 +1,587 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <link rel="canonical" href="https://nilanjana281.github.io/github.io/">
-  <meta charset="UTF-8" />
-  <title>Nilanjana Chatterjee | Senior Product Manager</title>
-  <!-- Primary Meta Tags -->
-<meta name="title" content="Nilanjana Chatterjee | Senior Product Manager">
-<meta name="description" content="Senior Product Manager specializing in enterprise platforms, AI-powered commerce, and digital transformation.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilanjana Chatterjee | Senior Product Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #1C2B4A;
+            --accent: #2D6A9F;
+            --accent-light: #EBF3FB;
+            --slate: #4A5568;
+            --dark: #1A202C;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: var(--dark);
+        }
+        h1, h2, .display { font-family: 'Playfair Display', serif; }
 
-<!-- Open Graph / LinkedIn -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://nilanjana281.github.io/github.io/">
-<meta property="og:title" content="Nilanjana Chatterjee | Senior Product Manager">
-<meta property="og:description" content="Senior Product Manager specializing in enterprise platforms, AI-powered commerce, and digital transformation.">
-<meta property="og:image" content="https://nilanjana281.github.io/github.io/preview.png">
-
-<!-- Twitter (also used by Slack/others) -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://nilanjana281.github.io/">
-<meta property="twitter:title" content="Nilanjana Chatterjee | Senior Product Manager">
-<meta property="twitter:description" content="Senior Product Manager specializing in enterprise platforms, AI-powered commerce, and digital transformation.">
-<meta property="twitter:image" content="https://nilanjana281.github.io/preview.png">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    .ctaRow{display:flex;gap:10px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  border-radius:999px;
-  padding:9px 14px;
-  font-size:13px;font-weight:650;
-  border:1px solid rgba(255,255,255,.14);
-  background:rgba(11,16,32,.65);
-  color:var(--muted);
-}
-.btn:hover{color:var(--text)}
-
-    :root{
-      --bg:#050816; --bg2:#0b1020; --accent:#f9b234;
-      --text:#f5f5f5; --muted:#a3aec5; --border:#262c40;
-      --max:1000px; --shadow:0 18px 40px rgba(0,0,0,.55);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      background:radial-gradient(circle at top,#131a35 0,#050816 55%,#02030a 100%);
-      color:var(--text);
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-    header{
-      position:sticky;top:0;z-index:10;
-      backdrop-filter:blur(16px);
-      background:linear-gradient(to bottom,rgba(5,8,22,.96),rgba(5,8,22,.88),transparent);
-      border-bottom:1px solid rgba(255,255,255,.04);
-    }
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:14px;flex-wrap:wrap}
-    .brand h1{margin:0;font-size:16px;letter-spacing:.18em;text-transform:uppercase}
-    .brand span{display:block;margin-top:4px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-    .links{display:flex;gap:16px;flex-wrap:wrap}
-    .links a{font-size:14px;color:var(--muted);position:relative;padding-bottom:2px}
-    .links a:hover{color:var(--text)}
-    .links a:after{
-      content:"";position:absolute;left:0;bottom:0;width:0;height:2px;border-radius:999px;
-      background:linear-gradient(90deg,#f9b234,#ff6f61);transition:width .18s ease-out;
-    }
-    .links a:hover:after{width:100%}
-
-    .hero{padding:56px 0 34px}
-    .heroGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center}
-    @media (max-width:900px){.heroGrid{grid-template-columns:1fr}}
-    .kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-    .title{margin:0 0 10px;font-size:clamp(30px,5vw,44px);line-height:1.1}
-    .title span{
-      background:linear-gradient(120deg,#f9b234,#ff8a8a);
-      -webkit-background-clip:text;color:transparent;
-    }
-    .tag{font-size:16px;color:var(--muted);margin:0 0 16px;font-weight:500}
-    .bio{font-size:14px;line-height:1.65;color:#c5cee5;max-width:560px}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 22px}
-    .chip{
-      font-size:11px;letter-spacing:.14em;text-transform:uppercase;
-      padding:6px 10px;border-radius:999px;border:1px solid rgba(249,178,52,.35);
-      background:radial-gradient(circle at top left,#1d2239,#050816);
-    }
-    .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-    .btn{
-      border-radius:999px;padding:10px 16px;font-size:13px;font-weight:600;border:1px solid var(--border);
-      background:rgba(11,16,32,.7);color:var(--muted);cursor:pointer
-    }
-    .btn.primary{
-      border:none;background:linear-gradient(135deg,#f9b234,#ff6f61);color:#050816;
-      box-shadow:var(--shadow)
-    }
-    .social{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-    .pill{
-      border-radius:999px;padding:7px 12px;font-size:12px;color:var(--muted);
-      border:1px solid rgba(255,255,255,.09);display:inline-flex;gap:8px;align-items:center
-    }
-
-    .photoCard{
-      border-radius:22px;padding:10px;max-width:340px;justify-self:center;
-      background:radial-gradient(circle at top,#283259,#050816);
-      border:1px solid rgba(255,255,255,.06);box-shadow:var(--shadow);position:relative
-    }
-    .photoInner{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
-    .photoInner img{width:100%;height:auto;display:block;object-fit:cover}
-    .photoTag{
-      position:absolute;left:18px;bottom:18px;
-      background:rgba(5,8,22,.86);border:1px solid rgba(255,255,255,.1);
-      color:var(--muted);font-size:11px;padding:6px 10px;border-radius:999px;backdrop-filter:blur(10px)
-    }
-
-    section{padding:18px 0 40px}
-    section+section{border-top:1px solid rgba(255,255,255,.04)}
-    .sectionHead{margin-bottom:16px}
-    .sectionHead .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-    .sectionHead h2{margin:0 0 6px;font-size:20px}
-    .sectionHead p{margin:0;color:var(--muted);font-size:13px;max-width:620px}
-
-    .grid{display:grid;gap:14px}
-    .card{
-      background:radial-gradient(circle at top left,#171d36,#050816);
-      border:1px solid var(--border);border-radius:18px;padding:16px;box-shadow:0 10px 25px rgba(0,0,0,.4)
-    }
-    .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
-    .small{font-size:11px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase}
-    .h{font-size:15px;font-weight:650}
-    .meta{font-size:11px;color:var(--muted)}
-    .sub{font-size:13px;color:var(--muted);margin:8px 0 0}
-    ul{margin:10px 0 0;padding:0;list-style:none}
-    li{margin:6px 0;font-size:13px;color:#c5cee5;padding-left:14px;position:relative}
-    li:before{content:"•";position:absolute;left:0;color:var(--accent);top:0}
-
-    /* NEW: badge for the new case study card */
-    .new-badge{
-      display:inline-block;
-      font-size:10px;letter-spacing:.14em;text-transform:uppercase;
-      background:linear-gradient(135deg,#f9b234,#ff6f61);
-      color:#050816;font-weight:700;
-      padding:3px 8px;border-radius:999px;
-      margin-left:8px;vertical-align:middle;
-    }
-
-    footer{
-      border-top:1px solid rgba(255,255,255,.04);
-      padding:18px 0 28px;color:var(--muted);font-size:12px
-    }
-    footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
-  </style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1C2B4A 0%, #2D6A9F 100%);
+        }
+        .accent-card {
+            border-left: 4px solid var(--accent);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .accent-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(45,106,159,0.13);
+        }
+        .case-card {
+            border: 1px solid #e2e8f0;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+        }
+        .tag {
+            display: inline-block;
+            background-color: var(--accent-light);
+            color: var(--accent);
+            padding: 0.2rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+        .tag-dark {
+            background-color: #1C2B4A15;
+            color: var(--navy);
+        }
+        .client-pill {
+            display: inline-block;
+            background: white;
+            border: 1px solid #e2e8f0;
+            color: var(--slate);
+            padding: 0.25rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 0.2rem;
+        }
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 0.4rem;
+            width: 1.1rem;
+            height: 1.1rem;
+            border-radius: 50%;
+            background-color: var(--accent);
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+        }
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .nav-link {
+            position: relative;
+            color: #4A5568;
+            transition: color 0.2s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 0; height: 2px;
+            background: var(--accent);
+            transition: width 0.25s;
+        }
+        .nav-link:hover { color: var(--accent); }
+        .nav-link:hover::after { width: 100%; }
+    </style>
 </head>
-
 <body>
-  <header>
-    <div class="wrap">
-      <div class="nav">
-        <div class="brand">
-          <h1>Nilanjana Chatterjee</h1>
-          <span>Product · AI & Commerce · Strategy</span>
-        </div>
-        <div class="links">
-          <a href="#about">Home</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Case Studies</a>
-          <a href="#background">Background</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
+
+<!-- ── NAVIGATION ── -->
+<header class="bg-white/95 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#" class="text-xl font-bold tracking-tight" style="color:var(--navy)">Nilanjana Chatterjee</a>
+        <nav class="hidden md:flex space-x-8">
+            <a href="#about"      class="nav-link">About</a>
+            <a href="#clients"    class="nav-link">Clients</a>
+            <a href="#highlights" class="nav-link">Highlights</a>
+            <a href="#casestudies"class="nav-link">Case Studies</a>
+            <a href="#experience" class="nav-link">Experience</a>
+            <a href="#contact"    class="nav-link">Contact</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden text-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+        </button>
     </div>
-  </header>
-
-  <main>
-    <section id="about" class="hero">
-      <div class="wrap">
-        <div class="heroGrid">
-          <div>
-            <div class="kicker">Hi, my name is</div>
-            <h2 class="title"><span>Nilanjana Chatterjee</span></h2>
-            <p class="tag">Senior Product Manager · Enterprise Platforms · AI-Powered Commerce</p>
-            <p class="bio">
-              I build enterprise-grade products across digital commerce, platform integrations, and customer experience.
-              I'm strongest at turning ambiguous business problems into crisp product strategy, aligned roadmaps,
-              and measurable outcomes.
-            </p>
-
-            <div class="chips">
-              <div class="chip">Digital Commerce</div>
-              <div class="chip">AI & Personalization</div>
-              <div class="chip">B2B SaaS</div>
-              <div class="chip">Platform Integrations</div>
-            </div>
-
-          <div class="cta">
-  <button class="btn primary" onclick="document.getElementById('projects').scrollIntoView()">
-    See Case Studies
-  </button>
-
-  <a class="btn" href="Nilanjana_Chatterjee_Resume.pdf" target="_blank">
-    Download Resume
-  </a>
-</div>
-
-
-            <div class="social">
-              <a class="pill" href="https://www.linkedin.com/in/nilanjana-chatterjjee" target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
-              <a class="pill" href="mailto:nilanjana.chatterjee1989@gmail.com">✉️ Email</a>
-            </div>
-          </div>
-
-          <div class="photoCard">
-            <div class="photoInner">
-              <img src="profile.jpg" alt="Nilanjana Chatterjee portrait" />
-            </div>
-            <div class="photoTag">NYC Metro · Open to Senior PM roles</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div class="k">Professional Journey</div>
-          <h2>Experience</h2>
-          <p>Roles and impact across enterprise commerce, financial services, and platform strategy.</p>
-        </div>
-
-        <div class="grid">
-          <div class="card">
-            <div class="small">Current</div>
-            <div class="row">
-              <div class="h">Senior Product Manager · Born Group</div>
-              <div class="meta">2019 – Present</div>
-            </div>
-            <p class="sub">Leading product innovation for enterprise commerce and platform transformations.</p>
-            <ul>
-              <li>Owned roadmap and stakeholder alignment across multi-stream enterprise initiatives.</li>
-              <li>Led platform/payment capabilities with secure integrations and compliance constraints.</li>
-              <li>Shipped personalization + omnichannel improvements tied to revenue and conversion lift.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="small">Earlier</div>
-            <div class="row">
-              <div class="h">Product Owner · Vlink Inc</div>
-              <div class="meta">2017 – 2018</div>
-            </div>
-            <p class="sub">CRM transformation and process automation in financial services.</p>
-            <ul>
-              <li>Drove discovery, requirements, and delivery for multi-phase CRM enhancements.</li>
-              <li>Used data analysis to inform risk patterns and operational decision making.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="small">Earlier</div>
-            <div class="row">
-              <div class="h">Lead Business Analyst · Nextworld Technologies</div>
-              <div class="meta">2015 – 2017</div>
-            </div>
-            <p class="sub">Magento-based commerce delivery with discovery + implementation leadership.</p>
-            <ul>
-              <li>Led stakeholder workshops, backlog planning, and delivery for commerce builds.</li>
-              <li>Created enablement and adoption support for new digital workflows.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div class="k">Selected Work</div>
-          <h2>Case Studies</h2>
-          <p>Examples of how I think about integration strategy, constraints, and scale.</p>
-        </div>
-
-        <div class="grid">
-
-          <!-- ✅ NEW CASE STUDY CARD -->
-          <div class="card">
-            <div class="row">
-              <div class="h">
-                Wix × Zapier × Kajabi Integration Fix · Independent Troubleshooting
-                <span class="new-badge">New</span>
-              </div>
-              <div class="meta">No-Code · Automation</div>
-            </div>
-            <p class="sub">
-              Diagnosed and resolved an undocumented legacy form incompatibility that made 8 of 9 Wix forms invisible to Zapier — blocking automated lead capture into Kajabi.
-            </p>
-            <ul>
-              <li>Systematically ruled out form, auth, and connection issues to isolate the failure to Zapier's API layer.</li>
-              <li>Researched across Claude, ChatGPT, Grok, and Gemini — synthesized insights and identified a fix none of them surfaced.</li>
-              <li>Resolved using an undocumented Zapier trigger string, connecting all 9 forms at $0 additional cost with zero rebuilds.</li>
-            </ul>
-            <div class="ctaRow" style="margin-top:12px;">
-              <a class="btn" href="pm-case-study.html">Read full case study →</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="row">
-              <div class="h">TaxCalc Carrier App Expansion · Product Strategy & Integration</div>
-              <div class="meta">B2B SaaS</div>
-            </div>
-            <p class="sub">
-              Expanded a cross-border tax/duty/shipping engine beyond Shopify into Magento & SFCC while protecting fast merchant onboarding.
-            </p>
-            <ul>
-              <li>Defined platform sequencing and integration pathways (basic vs extended) by capability + complexity.</li>
-              <li>Mapped checkout/API constraints across Shopify vs Magento vs SFCC to reduce implementation risk.</li>
-              <li>Proposed unified backend contracts so one backend could serve multiple commerce platforms.</li>
-            </ul>
-            <div class="ctaRow" style="margin-top:12px;">
-              <a class="btn" href="taxcalc.html">Read full case study →</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="row">
-              <div class="h">AI Personalization & BOPIS Rollout · Enterprise Retail</div>
-              <div class="meta">E-Commerce</div>
-            </div>
-            <p class="sub">Led rollout of personalization and in-store pickup experiences across channels.</p>
-            <ul>
-              <li>Partnered with BI/engineering to design experiments around conversion drop-offs and checkout friction.</li>
-              <li>Coordinated go-live with store ops + marketing with UAT checklists and launch playbooks.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="row">
-              <div class="h">GenAI for Test Automation · Platform Enablement</div>
-              <div class="meta">Enablement</div>
-            </div>
-            <p class="sub">Introduced GenAI-assisted test case generation into existing QA workflows.</p>
-            <ul>
-              <li>Defined workflow + guardrails that plugged into current BDD/TDD practices and CI/CD.</li>
-              <li>Reduced manual test design time and improved edge-case coverage for critical journeys.</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section id="background">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div class="k">Background</div>
-          <h2>Education & Certifications</h2>
-          <p>Engineering + analytics foundations that support technical product leadership.</p>
-        </div>
-
-        <div class="grid">
-          <div class="card">
-            <div class="row">
-              <div class="h">MS · Business Analytics · Saint Peter's University</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="row">
-              <div class="h">MBA · Management · IILM</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="row">
-              <div class="h">BTech · Computer Engineering · Jaipur Engineering College</div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="row"><div class="h">Certifications</div></div>
-            <ul>
-              <li>CSPO · Certified Scrum Product Owner</li>
-              <li>CCBA · Certification of Competency in Business Analysis</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div class="k">Next step</div>
-          <h2>Let's connect</h2>
-          <p>Hiring for Senior PM / Product Lead roles, or want to discuss commerce platform strategy?</p>
-        </div>
-
-        <div class="grid">
-          <div class="card">
-            <p class="sub">
-              Email:
-              <a href="mailto:nilanjana.chatterjee1989@gmail.com" style="color:var(--accent);font-weight:650;">
-                nilanjana.chatterjee1989@gmail.com
-              </a>
-              <br />
-              LinkedIn:
-              <a href="https://www.linkedin.com/in/nilanjana-chatterjjee" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:650;">
-                linkedin.com/in/nilanjana-chatterjjee
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div>© <span id="y"></span> Nilanjana Chatterjee.</div>
-      <div>Hosted on GitHub Pages.</div>
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-2">
+        <a href="#about"       class="block py-1 text-gray-600 hover:text-blue-600">About</a>
+        <a href="#clients"     class="block py-1 text-gray-600 hover:text-blue-600">Clients</a>
+        <a href="#highlights"  class="block py-1 text-gray-600 hover:text-blue-600">Highlights</a>
+        <a href="#casestudies" class="block py-1 text-gray-600 hover:text-blue-600">Case Studies</a>
+        <a href="#experience"  class="block py-1 text-gray-600 hover:text-blue-600">Experience</a>
+        <a href="#contact"     class="block py-1 text-gray-600 hover:text-blue-600">Contact</a>
     </div>
-  </footer>
+</header>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+<main>
+
+<!-- ── HERO ── -->
+<section class="hero-gradient text-white py-24 md:py-36 px-6">
+    <div class="container mx-auto max-w-4xl">
+        <p class="section-label text-blue-300 mb-4">Senior Product Manager</p>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+            Building AI-Powered Products<br>People Actually Use
+        </h1>
+        <p class="text-lg md:text-xl text-blue-100 max-w-2xl mb-8 leading-relaxed">
+            10+ years shipping enterprise eCommerce, AI personalization, healthcare portals, marketplace platforms, and fintech payment infrastructure — across global brands and complex, regulated environments.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-10">
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">AI &amp; eCommerce</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">Healthcare Digital Products</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">Fintech &amp; Payments</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">Marketplace Platforms</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">B2B · B2C · B2B2C</span>
+        </div>
+        <div class="flex flex-wrap gap-4">
+            <a href="Nilanjana_Chatterjee_Resume.pdf" class="inline-flex items-center bg-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-50 transition-colors" style="color:var(--navy)">
+                <i class="fas fa-download mr-2"></i> Download Resume
+            </a>
+            <a href="https://www.linkedin.com/in/nilanjana-chatterjjee" target="_blank" class="inline-flex items-center border border-white/50 text-white font-semibold py-3 px-6 rounded-lg hover:bg-white/10 transition-colors">
+                <i class="fab fa-linkedin mr-2"></i> LinkedIn
+            </a>
+            <a href="mailto:nilanjana.chatterjee1989@gmail.com" class="inline-flex items-center border border-white/50 text-white font-semibold py-3 px-6 rounded-lg hover:bg-white/10 transition-colors">
+                <i class="fas fa-envelope mr-2"></i> Email
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ── STATS BAR ── -->
+<section class="bg-white border-b border-gray-100 py-10 px-6">
+    <div class="container mx-auto max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+            <div class="stat-number text-4xl font-extrabold">63%</div>
+            <p class="text-sm text-gray-500 mt-1">Net Sales Improvement</p>
+        </div>
+        <div>
+            <div class="stat-number text-4xl font-extrabold">15%</div>
+            <p class="text-sm text-gray-500 mt-1">Revenue Lift via AI</p>
+        </div>
+        <div>
+            <div class="stat-number text-4xl font-extrabold">15+</div>
+            <p class="text-sm text-gray-500 mt-1">Enterprise Product Launches</p>
+        </div>
+        <div>
+            <div class="stat-number text-4xl font-extrabold">10+</div>
+            <p class="text-sm text-gray-500 mt-1">Years of PM Experience</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="py-20 px-6 scroll-mt-20">
+    <div class="container mx-auto max-w-4xl">
+        <p class="section-label mb-3">About</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-8" style="color:var(--navy)">How I Think About Product</h2>
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+            <div>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    I'm a Senior Product Manager with a computer science engineering foundation, an MBA, and 10+ years of hands-on experience shipping products that matter — across eCommerce, AI/ML, healthcare, fintech, and marketplace platforms.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    My strongest mode is translating ambiguous, high-stakes problems into crisp product strategy and measurable outcomes — working closely with engineering, data science, and design to ship products that actually move the needle for customers and businesses.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    I'm equally at home writing detailed API specs and PRDs, presenting roadmaps to C-suite, or debugging an integration myself at midnight. I thrive on ownership and complexity.
+                </p>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-blue-50 rounded-xl p-5 accent-card">
+                    <h4 class="font-semibold mb-2" style="color:var(--navy)">Technical Depth</h4>
+                    <p class="text-sm text-gray-600">BTech in Computer Engineering. Comfortable with REST APIs, cloud architecture (AWS, GCP), CI/CD, and working directly in Jira, Figma, and SQL.</p>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-5 accent-card">
+                    <h4 class="font-semibold mb-2" style="color:var(--navy)">AI-Native PM</h4>
+                    <p class="text-sm text-gray-600">Shipped GenAI into enterprise production pipelines. Built multi-provider AI agents. Actively experiments with LLMs, prompt engineering, and agentic architectures.</p>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-5 accent-card">
+                    <h4 class="font-semibold mb-2" style="color:var(--navy)">Multi-Industry Range</h4>
+                    <p class="text-sm text-gray-600">eCommerce, healthcare portals (CareAllies/Cigna), fintech payments (Fairstone Financial), B2B marketplaces (Sysco, Iron Mountain), and consumer brands at global scale.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CLIENT LOGOS ── -->
+<section id="clients" class="py-16 px-6 bg-white scroll-mt-20">
+    <div class="container mx-auto max-w-4xl">
+        <p class="section-label mb-3 text-center">Select Clients</p>
+        <h2 class="text-2xl md:text-3xl font-bold text-center mb-4" style="color:var(--navy)">Brands I've Built Products For</h2>
+        <p class="text-center text-gray-500 text-sm mb-8">Across Salesforce Commerce Cloud, Shopify, Magento, Mirakl, Elastic Path, Spryker, VTex, and Drupal</p>
+        <div class="text-center">
+            <span class="client-pill">Converse</span>
+            <span class="client-pill">Forever 21</span>
+            <span class="client-pill">Shoes.com</span>
+            <span class="client-pill">Lucky Brand</span>
+            <span class="client-pill">Playboy</span>
+            <span class="client-pill">Boost Mobile</span>
+            <span class="client-pill">Delta Faucet</span>
+            <span class="client-pill">Lindt</span>
+            <span class="client-pill">Oreo</span>
+            <span class="client-pill">Sour Patch Kids</span>
+            <span class="client-pill">Elémis</span>
+            <span class="client-pill">Sysco</span>
+            <span class="client-pill">Iron Mountain</span>
+            <span class="client-pill">Yamaha Music</span>
+            <span class="client-pill">CareAllies (Cigna)</span>
+            <span class="client-pill">Fairstone Financial</span>
+            <span class="client-pill">Orgill</span>
+            <span class="client-pill">Trove</span>
+            <span class="client-pill">Go Hunt</span>
+            <span class="client-pill">London Jewellers</span>
+            <span class="client-pill">ICC</span>
+            <span class="client-pill">Inspired Education</span>
+        </div>
+    </div>
+</section>
+
+<!-- ── HIGHLIGHTS ── -->
+<section id="highlights" class="py-20 px-6 scroll-mt-20">
+    <div class="container mx-auto max-w-5xl">
+        <p class="section-label mb-3">Impact Areas</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-12" style="color:var(--navy)">What I've Built &amp; Delivered</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+
+            <div class="bg-white rounded-xl p-8 case-card">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style="background:var(--accent-light)">
+                        <i class="fas fa-brain text-xl" style="color:var(--accent)"></i>
+                    </div>
+                    <h3 class="text-xl font-bold" style="color:var(--navy)">AI Personalization &amp; GenAI</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">Drove a 15% increase in digital revenue through AI-powered personalization engines across enterprise retail platforms. Pioneered Generative AI in enterprise QA workflows — one of the earliest production GenAI implementations in CI/CD pipelines. Built multi-provider AI agents hands-on (Claude, ChatGPT, Gemini).</p>
+                <div>
+                    <span class="tag">ML Personalization</span>
+                    <span class="tag">Generative AI</span>
+                    <span class="tag">LLMs</span>
+                    <span class="tag">A/B Testing</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-8 case-card">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style="background:#f0fdf4">
+                        <i class="fas fa-shopping-cart text-xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold" style="color:var(--navy)">eCommerce Platform Delivery</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">Led multi-million-dollar re-platforming programs for global brands including Converse, Forever 21, Shoes.com, Lucky Brand, and Boost Mobile — across Salesforce Commerce Cloud, Shopify, and Magento. Launched BOPIS achieving 63% net sales improvement and 7% churn reduction.</p>
+                <div>
+                    <span class="tag">SFCC</span>
+                    <span class="tag">Shopify</span>
+                    <span class="tag">Magento</span>
+                    <span class="tag">BOPIS</span>
+                    <span class="tag">Omnichannel</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-8 case-card">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style="background:#fef3c7">
+                        <i class="fas fa-store text-xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold" style="color:var(--navy)">B2B Marketplace Platforms</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">Owned marketplace platform products for Sysco (Mirakl), Iron Mountain (Spryker), and Orgill (Elastic Path + Vue Storefront) — complex multi-sided B2B environments serving restaurants, enterprises, and hardware distributors with high-volume ordering and vendor management workflows.</p>
+                <div>
+                    <span class="tag">Mirakl</span>
+                    <span class="tag">Elastic Path</span>
+                    <span class="tag">Spryker</span>
+                    <span class="tag">B2B</span>
+                    <span class="tag">Marketplace</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-8 case-card">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style="background:#fdf2f8">
+                        <i class="fas fa-heartbeat text-xl text-pink-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold" style="color:var(--navy)">Healthcare Digital Products</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">Embedded PM for CareAllies (Cigna) — owned provider portal, claims portal, and caregiver portal end to end across regulated clinical workflows. Additional regulated environment experience across medical device clients including Boston Scientific and Cochlear.</p>
+                <div>
+                    <span class="tag">Healthcare Portals</span>
+                    <span class="tag">Claims</span>
+                    <span class="tag">Regulated Environments</span>
+                    <span class="tag">Clinical UX</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-8 case-card">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style="background:#eff6ff">
+                        <i class="fas fa-credit-card text-xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold" style="color:var(--navy)">Fintech &amp; Payment Infrastructure</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">Led development of payment gateway, card products, and installment payment structures for Fairstone Financial, a major Canadian consumer lending institution — full lifecycle from requirements through launch including banking API integration, card scheme design, and regulatory compliance.</p>
+                <div>
+                    <span class="tag">Payment Gateway</span>
+                    <span class="tag">Card Products</span>
+                    <span class="tag">Banking APIs</span>
+                    <span class="tag">Regulatory Compliance</span>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-8 case-card">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4" style="background:#f5f3ff">
+                        <i class="fas fa-code-branch text-xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold" style="color:var(--navy)">Integration Architecture &amp; API Design</h3>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">Designed end-to-end integration architecture and authored full PRDs for expanding cross-border shipping, tax, and duty calculation platforms across Shopify, Magento, and SFCC — covering HLD, API payload design, checkout pipeline hooks, FX strategy, and merchant onboarding.</p>
+                <div>
+                    <span class="tag">HLD</span>
+                    <span class="tag">REST API Design</span>
+                    <span class="tag">PRD Authoring</span>
+                    <span class="tag">Cross-border Commerce</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── CASE STUDIES ── -->
+<section id="casestudies" class="py-20 px-6 bg-white scroll-mt-20">
+    <div class="container mx-auto max-w-5xl">
+        <p class="section-label mb-3">Case Studies</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color:var(--navy)">How I Think, Not Just What I Did</h2>
+        <p class="text-gray-500 mb-12">Deep dives into real product problems — the constraints, the decisions, the outcomes.</p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+            <!-- Case Study 1: AI Manuscript Editor -->
+            <div class="bg-gray-50 rounded-2xl p-8 case-card flex flex-col">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="tag">GenAI</span>
+                    <span class="tag">0-to-1</span>
+                    <span class="tag">Personal Project</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3" style="color:var(--navy)">AI Manuscript Editor Agent</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Built a multi-provider AI editorial agent from scratch — integrating Claude, ChatGPT, and Gemini APIs — to provide professional-grade feedback on prose, structure, character voice, and pacing across a 73-chapter novel. Designed the full product: multi-provider routing, prompt engineering, structured JSON output, chapter tracking, PDF/Word export. v2 roadmap includes persistent memory, cross-chapter NLP continuity, and highlighted track-changes output. Live on GitHub.</p>
+                <div class="pt-4 border-t border-gray-200">
+                    <p class="text-xs text-gray-400 mb-3">Skills: LLM product development · Prompt engineering · 0-to-1 building · Agentic architecture</p>
+                    <a href="https://github.com/nilanjana281/manuscript-editor" target="_blank" class="inline-flex items-center font-semibold text-sm hover:underline" style="color:var(--accent)">
+                        View on GitHub <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case Study 2: Wix-Zapier-Kajabi -->
+            <div class="bg-gray-50 rounded-2xl p-8 case-card flex flex-col">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="tag">No-Code</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Integration</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3" style="color:var(--navy)">The Undocumented Fix Nobody Found</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">8 of 9 Wix forms were invisible to Zapier — silently killing every lead capture submission. Four AI tools, four valid answers, none of which worked. Found and applied an undocumented trigger string that exists nowhere in official docs. All 9 forms connected in under 15 minutes. $0 cost. Zero rebuilds.</p>
+                <div class="pt-4 border-t border-gray-200">
+                    <p class="text-xs text-gray-400 mb-3">Skills: Systems debugging · Multi-AI research synthesis · Constraint-based problem solving</p>
+                    <a href="pm-case-study.html" class="inline-flex items-center font-semibold text-sm hover:underline" style="color:var(--accent)">
+                        Read full case study <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case Study 3: Cross-border -->
+            <div class="bg-gray-50 rounded-2xl p-8 case-card flex flex-col">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="tag">B2B SaaS</span>
+                    <span class="tag">API Design</span>
+                    <span class="tag">Multi-platform</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3" style="color:var(--navy)">Cross-Border Platform Expansion Strategy</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Designed the integration architecture and full PRD for expanding a cross-border tax/duty/shipping carrier app from Shopify into Magento and Salesforce Commerce Cloud. Covered HLD, API payload design, platform-specific checkout hooks, FX risk strategy, and merchant onboarding under 5 days — while protecting implementation simplicity across platforms with very different architectures.</p>
+                <div class="pt-4 border-t border-gray-200">
+                    <p class="text-xs text-gray-400 mb-3">Skills: HLD · PRD authoring · API design · Platform architecture · Cross-border commerce</p>
+                    <a href="taxcalc.html" class="inline-flex items-center font-semibold text-sm hover:underline" style="color:var(--accent)">
+                        Read full case study <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Case Study 4: Payments Lifecycle -->
+            <div class="bg-gray-50 rounded-2xl p-8 case-card flex flex-col">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="tag">Fintech</span>
+                    <span class="tag">API Testing</span>
+                    <span class="tag">Payments</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3" style="color:var(--navy)">Payments Lifecycle Integration Prototype</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Built a hands-on payments integration prototype to understand and demonstrate how a third-party payment solution works across the full order lifecycle — authorization, capture, cancellation, and refund. Rather than treating payment as one linear flow, intentionally separated lifecycle stages into distinct order scenarios to make each transaction state easier to validate and explain. Used Postman for API testing and CodePen for frontend interaction. The goal: connect product thinking with technical execution — understanding how payment states change, how user actions map to backend behavior, and how to structure flows that are clear, testable, and operationally meaningful.</p>
+                <div class="pt-4 border-t border-gray-200">
+                    <p class="text-xs text-gray-400 mb-3">Skills: Payments lifecycle · API fluency · Integration design · Transaction state management · Product-technical translation</p>
+                    <span class="inline-flex items-center font-semibold text-sm text-gray-400 cursor-default">
+                        Full write-up coming soon
+                    </span>
+                </div>
+            </div>
+
+            <!-- Case Study 5: AI Personalization + BOPIS -->
+            <div class="bg-gray-50 rounded-2xl p-8 case-card flex flex-col">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="tag">E-Commerce</span>
+                    <span class="tag">AI/ML</span>
+                    <span class="tag">Omnichannel</span>
+                </div>
+                <h3 class="text-xl font-bold mb-3" style="color:var(--navy)">AI Personalization &amp; BOPIS Rollout</h3>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">Led the product strategy and delivery for two high-impact retail features: an AI-powered personalization engine contributing to a 15% revenue increase, and a BOPIS (Buy Online Pick-Up In Store) feature that delivered a 63% improvement in net sales, 50% increase in local inventory utilization, and 7% reduction in customer churn YoY. Partnered with BI and engineering to design experiments, define KPIs, and manage go-live across store ops and marketing.</p>
+                <div class="pt-4 border-t border-gray-200">
+                    <p class="text-xs text-gray-400 mb-3">Skills: AI product strategy · A/B testing · Omnichannel execution · Data-driven roadmap</p>
+                    <span class="inline-flex items-center font-semibold text-sm text-gray-400 cursor-default">
+                        Full write-up coming soon
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience" class="py-20 px-6 scroll-mt-20">
+    <div class="container mx-auto max-w-3xl">
+        <p class="section-label mb-3">Experience</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-12" style="color:var(--navy)">Professional Journey</h2>
+
+        <div class="relative border-l-2 border-blue-100 ml-8 pl-10 space-y-12">
+
+            <!-- Born Group -->
+            <div class="relative timeline-dot">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">July 2019 – September 2025</p>
+                <h3 class="text-xl font-bold" style="color:var(--navy)">Senior Product Manager</h3>
+                <p class="text-base font-medium mb-1" style="color:var(--accent)">Born Group</p>
+                <p class="text-xs text-gray-400 mb-4">Select clients: Converse · Forever 21 · Shoes.com · Lucky Brand · Sysco · Iron Mountain · Yamaha · CareAllies (Cigna) · Fairstone Financial · Lindt · Oreo · Boost Mobile · Delta Faucet · Elémis · Playboy · Orgill</p>
+                <ul class="text-gray-600 text-sm space-y-2">
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Owned end-to-end product roadmaps across enterprise eCommerce, AI, healthcare, fintech, and marketplace platform initiatives — delivering multi-million-dollar programs for global brands across B2B, B2C, and B2B2C channels</li>
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Shipped AI-powered personalization driving 15% revenue increase; launched BOPIS achieving 63% net sales improvement and 7% churn reduction</li>
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Embedded PM for CareAllies (Cigna) — provider, claims, and caregiver portals in regulated healthcare environments</li>
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Led payment gateway, card products, and installment structures for Fairstone Financial with full banking API integration and compliance</li>
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Pioneered GenAI in enterprise QA production; built multi-provider AI agents hands-on</li>
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Owned B2B marketplace delivery for Sysco (Mirakl), Iron Mountain (Spryker), and Orgill (Elastic Path)</li>
+                </ul>
+            </div>
+
+            <!-- Vlink -->
+            <div class="relative timeline-dot">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">April 2017 – January 2018</p>
+                <h3 class="text-xl font-bold" style="color:var(--navy)">Product Owner</h3>
+                <p class="text-base font-medium mb-4" style="color:var(--accent)">Vlink Inc</p>
+                <ul class="text-gray-600 text-sm space-y-2">
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Drove discovery and delivery for enterprise financial services CRM transformation — BRDs, FRDs, multi-phase delivery</li>
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Applied data mining and statistical analysis to identify risk patterns and behavioral signals driving product decisions</li>
+                </ul>
+            </div>
+
+            <!-- Nextworld -->
+            <div class="relative timeline-dot">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">August 2015 – March 2017</p>
+                <h3 class="text-xl font-bold" style="color:var(--navy)">Lead Business Analyst</h3>
+                <p class="text-base font-medium mb-4" style="color:var(--accent)">Nextworld Technologies</p>
+                <ul class="text-gray-600 text-sm space-y-2">
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Built Magento-based eCommerce platforms for emerging international markets — led full discovery, backlog planning, and delivery</li>
+                    <li class="flex items-start gap-2"><span style="color:var(--accent)" class="mt-0.5">▸</span> Created user adoption strategies that accelerated onboarding and improved product engagement across distributed user populations</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-3xl">
+        <p class="section-label mb-3">Background</p>
+        <h2 class="text-2xl font-bold mb-8" style="color:var(--navy)">Education &amp; Certifications</h2>
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-gray-50 rounded-xl p-5 text-center">
+                <i class="fas fa-graduation-cap text-2xl mb-3" style="color:var(--accent)"></i>
+                <p class="font-bold text-sm" style="color:var(--navy)">MS · Business Analytics</p>
+                <p class="text-xs text-gray-500 mt-1">Saint Peter's University</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-5 text-center">
+                <i class="fas fa-graduation-cap text-2xl mb-3" style="color:var(--accent)"></i>
+                <p class="font-bold text-sm" style="color:var(--navy)">MBA · Management</p>
+                <p class="text-xs text-gray-500 mt-1">IILM</p>
+            </div>
+            <div class="bg-gray-50 rounded-xl p-5 text-center">
+                <i class="fas fa-graduation-cap text-2xl mb-3" style="color:var(--accent)"></i>
+                <p class="font-bold text-sm" style="color:var(--navy)">BTech · Computer Engineering</p>
+                <p class="text-xs text-gray-500 mt-1">Jaipur Engineering College</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-3">
+            <div class="flex items-center gap-2 bg-blue-50 rounded-lg px-4 py-2">
+                <i class="fas fa-certificate" style="color:var(--accent)"></i>
+                <span class="text-sm font-medium" style="color:var(--navy)">CSPO · Certified Scrum Product Owner</span>
+            </div>
+            <div class="flex items-center gap-2 bg-blue-50 rounded-lg px-4 py-2">
+                <i class="fas fa-certificate" style="color:var(--accent)"></i>
+                <span class="text-sm font-medium" style="color:var(--navy)">CCBA · Certification of Competency in Business Analysis</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="py-20 px-6 scroll-mt-20">
+    <div class="container mx-auto max-w-3xl">
+        <div class="hero-gradient text-white rounded-2xl p-12 text-center shadow-xl">
+            <p class="section-label text-blue-300 mb-3">Open to Opportunities</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Build Something Great</h2>
+            <p class="text-blue-100 mb-8 max-w-xl mx-auto">Hiring for Senior PM / Principal PM roles in AI, eCommerce, healthcare, fintech, or marketplace? I'd love to connect.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:nilanjana.chatterjee1989@gmail.com" class="inline-flex items-center bg-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-50 transition-colors" style="color:var(--navy)">
+                    <i class="fas fa-envelope mr-2"></i> Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/nilanjana-chatterjjee" target="_blank" class="inline-flex items-center border border-white/50 text-white font-semibold py-3 px-6 rounded-lg hover:bg-white/10 transition-colors">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                </a>
+                <a href="Nilanjana_Chatterjee_Resume.pdf" class="inline-flex items-center border border-white/50 text-white font-semibold py-3 px-6 rounded-lg hover:bg-white/10 transition-colors">
+                    <i class="fas fa-download mr-2"></i> Resume
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="py-8 px-6 text-center text-sm text-gray-400" style="background:#1C2B4A; color:#8899aa">
+    <p>&copy; <span id="current-year"></span> Nilanjana Chatterjee · NYC Metro · Open to Remote Senior PM Roles</p>
+</footer>
+
+<script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    const btn = document.getElementById('mobile-menu-button');
+    const menu = document.getElementById('mobi
