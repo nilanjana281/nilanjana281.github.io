@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments Lifecycle Integration Prototype | Nilanjana Chatterjee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --navy:#1C2B4A; --accent:#2D6A9F; --accent-light:#EBF3FB; }
+        body { font-family:'Inter',sans-serif; background:#f8fafc; color:#1A202C; }
+        h1,h2,h3 { font-family:'Playfair Display',serif; }
+        .hero-gradient { background:linear-gradient(135deg,#1C2B4A 0%,#2D6A9F 100%); }
+        .tag { display:inline-block; background:var(--accent-light); color:var(--accent); padding:0.2rem 0.75rem; border-radius:9999px; font-size:0.8rem; font-weight:600; margin:0.2rem; }
+        .section-label { text-transform:uppercase; letter-spacing:0.12em; font-size:0.75rem; font-weight:700; color:var(--accent); }
+        .buparl { border-left:3px solid var(--accent-light); padding-left:1.5rem; margin-bottom:2.5rem; }
+        .buparl-label { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent); margin-bottom:0.5rem; }
+        .insight { background:var(--accent-light); border-radius:0.75rem; padding:1.25rem; }
+        .state-card { border:1px solid #e2e8f0; background:white; border-radius:0.75rem; padding:1.25rem; }
+        .state-badge { display:inline-block; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:0.15rem 0.6rem; border-radius:9999px; margin-bottom:0.5rem; }
+    </style>
+</head>
+<body>
+<header class="bg-white/95 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2 text-sm font-semibold hover:opacity-80" style="color:var(--accent)">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <a href="index.html" class="text-base font-bold" style="color:var(--navy)">Nilanjana Chatterjee</a>
+    </div>
+</header>
+<main>
+<section class="hero-gradient text-white py-20 px-6">
+    <div class="container mx-auto max-w-4xl">
+        <p class="section-label text-blue-300 mb-3">Case Study · Fintech · Payments</p>
+        <h1 class="font-extrabold leading-tight mb-4" style="font-size:clamp(2rem,5vw,3.25rem)">Payments Lifecycle Integration Prototype</h1>
+        <p class="text-blue-200 text-lg max-w-2xl mb-6 leading-relaxed">Building a hands-on prototype to map, test, and communicate the full payment lifecycle — authorization through refund — with explicit frontend-to-backend state transitions at each stage.</p>
+        <div class="flex flex-wrap gap-2">
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">Fintech</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">API Testing</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">Payments</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">Integration Design</span>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 px-6">
+    <div class="container mx-auto max-w-3xl">
+
+        <div class="buparl">
+            <p class="buparl-label">Key Problem</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">Payments aren't a single flow — and treating them as one creates problems</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">Payment integrations are rarely just about enabling checkout. They involve multiple distinct transaction states — authorization, capture, cancellation, and refund — each with its own frontend behavior, backend dependencies, and order state transitions. When the entire lifecycle is treated as one continuous linear flow, several things break down.</p>
+            <p class="text-gray-700 leading-relaxed mb-4">Testing becomes tangled: you cannot isolate behavior at authorization without inadvertently triggering capture logic. Stakeholder communication becomes vague: explaining "payment" as a single action obscures the conditional logic that determines what the system actually does at each stage. Edge case identification becomes reactive rather than proactive, because the mental model doesn't distinguish between states until something goes wrong in production.</p>
+            <p class="text-gray-700 leading-relaxed">The core question this prototype was designed to answer: what does each transaction state actually do — at the API level, and at the frontend layer — and how do those two layers connect?</p>
+        </div>
+
+        <div class="buparl">
+            <p class="buparl-label">Core Users</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">The people who need to understand this — not just the ones who build it</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">Product and engineering teams evaluating, integrating, or communicating how third-party payment solutions behave across the full order lifecycle — not just at the checkout initiation point.</p>
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+                <div class="insight">
+                    <h4 class="font-bold mb-2" style="color:var(--navy)">PMs and Technical PMs</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Need to write specs and acceptance criteria that map frontend user actions to backend transaction outcomes at each lifecycle stage — without leaving "payment behavior" as a black box in the PRD.</p>
+                </div>
+                <div class="insight">
+                    <h4 class="font-bold mb-2" style="color:var(--navy)">Engineering Teams</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Need testable, independently verifiable documentation of each state — so integration work can be validated in stages, and edge cases around order state transitions can be identified before they reach production.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="buparl">
+            <p class="buparl-label">Action</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">Build it, test it, document it — stage by stage</h2>
+            <p class="text-gray-700 leading-relaxed mb-6">Built a hands-on prototype using Postman for API testing and CodePen for frontend payment widget interaction. The key structural decision: rather than treating the payment journey as one continuous flow, intentionally separated the lifecycle into distinct order scenarios — one scenario per transaction state. Each stage was independently testable and explainable.</p>
+
+            <div class="grid md:grid-cols-2 gap-4 mb-8">
+                <div class="state-card">
+                    <span class="state-badge" style="background:#dbeafe;color:#1e40af">Stage 1</span>
+                    <h4 class="font-bold mb-1" style="color:var(--navy)">Authorization</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Card validated, funds reserved but not captured. Frontend: payment form submission + pending state. API: auth request, response with authorization token and status.</p>
+                </div>
+                <div class="state-card">
+                    <span class="state-badge" style="background:#dcfce7;color:#166534">Stage 2</span>
+                    <h4 class="font-bold mb-1" style="color:var(--navy)">Capture</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Reserved funds moved to merchant account. Frontend: order confirmed state triggered. API: capture call referencing auth token, settlement response and timing behavior.</p>
+                </div>
+                <div class="state-card">
+                    <span class="state-badge" style="background:#fef9c3;color:#854d0e">Stage 3</span>
+                    <h4 class="font-bold mb-1" style="color:var(--navy)">Cancellation</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Auth voided before capture. Frontend: order cancelled state, no charge confirmation. API: void request, release of reserved funds, edge cases around timing window.</p>
+                </div>
+                <div class="state-card">
+                    <span class="state-badge" style="background:#fce7f3;color:#9d174d">Stage 4</span>
+                    <h4 class="font-bold mb-1" style="color:var(--navy)">Refund</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">Post-capture return of funds. Frontend: refund initiated and confirmed state. API: refund request with amount, partial vs. full refund logic, settlement reversal behavior.</p>
+                </div>
+            </div>
+
+            <p class="text-gray-700 leading-relaxed mb-4">At each stage: validated request-response behavior at the API level via Postman, then connected frontend user actions to backend transaction outcomes using the CodePen widget. This made the prototype both technically verifiable and communicable to non-engineering stakeholders — the widget interaction told the user story, and the Postman collection showed what the system was actually doing underneath.</p>
+            <p class="text-gray-700 leading-relaxed">Documented each stage with explicit mapping: what the user sees, what the frontend sends, what the API returns, what the order state becomes, and what the edge cases are at that stage specifically.</p>
+        </div>
+
+        <div class="buparl">
+            <p class="buparl-label">Impact</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">Clear, testable documentation of the full payment lifecycle</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">Produced explicit frontend-to-backend mapping across all four transaction states. Each stage is independently testable, independently documentable, and independently communicable — which is not the case when the lifecycle is treated as a single integration unit.</p>
+            <p class="text-gray-700 leading-relaxed mb-4">Deepened practical fluency in payment state transitions, API request-response structures, and how to structure payment flows in a way that is operationally meaningful — not just technically functional. The prototype also surfaced non-obvious edge cases around timing windows (particularly the cancellation-after-capture boundary) that are easy to miss when thinking about payments at the flow level rather than the state level.</p>
+            <p class="text-gray-700 leading-relaxed">The artifact functions both as a reference for integration work and as a stakeholder communication tool — the widget interaction layer makes the lifecycle legible to product, ops, and commercial stakeholders who don't live in API documentation.</p>
+        </div>
+
+        <div class="buparl">
+            <p class="buparl-label">Learning</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">The real product challenge in payments isn't enabling checkout</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">Separating lifecycle stages into distinct scenarios makes payment behavior dramatically easier to validate, communicate, and troubleshoot — for both PMs and engineering teams. The structure that seems like extra overhead at the start is the structure that prevents production incidents at the end.</p>
+            <p class="text-gray-700 leading-relaxed mb-4">The real product challenge in payments is not enabling checkout — it is reasoning clearly about what happens after. Authorization is not payment. Capture is not confirmation. Cancellation has a timing window. Refund has partial vs. full logic. Every one of those distinctions matters operationally, and the PM who understands them is the one who writes specs engineering can actually build from.</p>
+            <p class="text-gray-700 leading-relaxed">And building the prototype rather than just reading the API docs made the difference. There are behaviors you only discover by firing the requests — the timing edge cases, the error states that don't match the documentation, the frontend race conditions that only appear when you connect both layers simultaneously.</p>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-200 flex flex-wrap items-center justify-between gap-4">
+            <div>
+                <p class="text-xs text-gray-400 mb-2">Skills demonstrated</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag">Payments Lifecycle</span>
+                    <span class="tag">API Fluency</span>
+                    <span class="tag">Integration Design</span>
+                    <span class="tag">Transaction State Management</span>
+                    <span class="tag">Product-Technical Translation</span>
+                </div>
+            </div>
+            <a href="index.html#casestudies" class="inline-flex items-center font-semibold text-sm hover:underline" style="color:var(--accent)">
+                <i class="fas fa-arrow-left mr-2 text-xs"></i> All Case Studies
+            </a>
+        </div>
+    </div>
+</section>
+</main>
+<footer class="py-8 px-6 text-center text-sm" style="background:#1C2B4A; color:#8899aa">
+    <p>&copy; <span id="yr"></span> Nilanjana Chatterjee · NYC Metro · Open to Remote Senior PM Roles</p>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>

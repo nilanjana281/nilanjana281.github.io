@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Manuscript Editor Agent | Nilanjana Chatterjee</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --navy:#1C2B4A; --accent:#2D6A9F; --accent-light:#EBF3FB; }
+        body { font-family:'Inter',sans-serif; background:#f8fafc; color:#1A202C; }
+        h1,h2,h3 { font-family:'Playfair Display',serif; }
+        .hero-gradient { background:linear-gradient(135deg,#1C2B4A 0%,#2D6A9F 100%); }
+        .tag { display:inline-block; background:var(--accent-light); color:var(--accent); padding:0.2rem 0.75rem; border-radius:9999px; font-size:0.8rem; font-weight:600; margin:0.2rem; }
+        .section-label { text-transform:uppercase; letter-spacing:0.12em; font-size:0.75rem; font-weight:700; color:var(--accent); }
+        .buparl { border-left:3px solid var(--accent-light); padding-left:1.5rem; margin-bottom:2.5rem; }
+        .buparl-label { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--accent); margin-bottom:0.5rem; }
+        .insight { background:var(--accent-light); border-radius:0.75rem; padding:1.25rem; }
+        .model-card { border:1px solid #e2e8f0; background:white; border-radius:0.75rem; padding:1.25rem; }
+    </style>
+</head>
+<body>
+<header class="bg-white/95 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2 text-sm font-semibold hover:opacity-80" style="color:var(--accent)">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <a href="index.html" class="text-base font-bold" style="color:var(--navy)">Nilanjana Chatterjee</a>
+    </div>
+</header>
+<main>
+<section class="hero-gradient text-white py-20 px-6">
+    <div class="container mx-auto max-w-4xl">
+        <p class="section-label text-blue-300 mb-3">Case Study · GenAI · 0-to-1 · Personal Project</p>
+        <h1 class="font-extrabold leading-tight mb-4" style="font-size:clamp(2rem,5vw,3.25rem)">AI Manuscript Editor Agent</h1>
+        <p class="text-blue-200 text-lg max-w-2xl mb-6 leading-relaxed">Designing and building a multi-provider AI editorial agent from scratch — integrating Claude, ChatGPT, and Gemini — to deliver consistent, professional-grade feedback on long-form fiction at chapter scale.</p>
+        <div class="flex flex-wrap gap-2 mb-6">
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">GenAI</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">0-to-1</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">Multi-Provider Routing</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">Prompt Engineering</span>
+            <span class="tag" style="background:rgba(255,255,255,0.15);color:white">Agentic Architecture</span>
+        </div>
+        <a href="https://github.com/nilanjana281/manuscript-editor" target="_blank" class="inline-flex items-center gap-2 border border-white/40 text-white font-semibold py-2 px-5 rounded-lg hover:bg-white/10 transition text-sm">
+            <i class="fab fa-github"></i> View on GitHub
+        </a>
+    </div>
+</section>
+
+<section class="py-20 px-6">
+    <div class="container mx-auto max-w-3xl">
+
+        <div class="buparl">
+            <p class="buparl-label">Key Problem</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">Existing AI tools fail long-form fiction — structurally, not just stylistically</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">Existing AI writing tools provide generic, stateless feedback. They work reasonably well for a standalone blog post or a short piece — but they fall apart for long-form, serialized fiction. The problems are structural: feedback across chapters is disconnected because there is no memory of earlier character decisions, plot threads, or voice choices. There is no continuity mechanism.</p>
+            <p class="text-gray-700 leading-relaxed mb-4">Compounding that, no tool combined multi-provider AI routing with structured editorial output and document export in one place. Authors using these tools were copy-pasting chapters into generic chat interfaces, getting inconsistent feedback with no shared context, and manually managing the gap between "AI suggestion" and "chapter edit." The workflow was fragmented, the output was inconsistent, and there was no way to track what feedback had been applied across a 70+ chapter manuscript.</p>
+            <p class="text-gray-700 leading-relaxed">The gap was not a missing model. It was a missing product layer — the system design, the routing logic, the output structure, and the state management that would make AI feedback genuinely useful at scale.</p>
+        </div>
+
+        <div class="buparl">
+            <p class="buparl-label">Core User</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">One author. Seventy-three chapters. Consistent editorial feedback needed across all of them.</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">An author working on a 73-chapter serialized novel needed professional-grade editorial feedback on prose quality, structure, character voice, and pacing — at scale, consistently, without losing continuity across chapters. The feedback had to be comparable chapter-to-chapter (so the author could trust it), specific enough to act on, and exportable in a form that could be archived or shared.</p>
+            <div class="insight mt-4">
+                <p class="text-sm text-gray-600 leading-relaxed">The user need was not "better AI." It was a system where AI feedback was reliable, consistent across sessions, structured enough to be actionable, and organized enough to track — none of which any existing tool provided out of the box.</p>
+            </div>
+        </div>
+
+        <div class="buparl">
+            <p class="buparl-label">Action</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">Building the product layer — not just using the API</h2>
+
+            <h3 class="text-xl font-semibold mb-3 mt-6" style="color:var(--navy)">Multi-Provider Routing</h3>
+            <p class="text-gray-700 leading-relaxed mb-6">Integrated Claude, ChatGPT, and Gemini APIs and designed routing logic to select the optimal model per task type — rather than treating all models as interchangeable. Each model has different strengths across different editorial dimensions: prose-level feedback, structural analysis, pacing, and voice consistency respond differently across providers. The routing layer was designed to exploit those differences systematically.</p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-8">
+                <div class="model-card text-center">
+                    <div class="w-10 h-10 rounded-full mx-auto mb-3 flex items-center justify-center" style="background:var(--accent-light)">
+                        <i class="fas fa-feather-alt" style="color:var(--accent)"></i>
+                    </div>
+                    <p class="font-bold text-sm mb-1" style="color:var(--navy)">Claude</p>
+                    <p class="text-gray-500 text-xs">Prose-level feedback, nuanced voice and tone analysis, character consistency</p>
+                </div>
+                <div class="model-card text-center">
+                    <div class="w-10 h-10 rounded-full mx-auto mb-3 flex items-center justify-center" style="background:#f0fdf4">
+                        <i class="fas fa-sitemap text-green-600"></i>
+                    </div>
+                    <p class="font-bold text-sm mb-1" style="color:var(--navy)">ChatGPT</p>
+                    <p class="text-gray-500 text-xs">Structural analysis, plot coherence, chapter arc evaluation</p>
+                </div>
+                <div class="model-card text-center">
+                    <div class="w-10 h-10 rounded-full mx-auto mb-3 flex items-center justify-center" style="background:#fdf2f8">
+                        <i class="fas fa-tachometer-alt text-pink-600"></i>
+                    </div>
+                    <p class="font-bold text-sm mb-1" style="color:var(--navy)">Gemini</p>
+                    <p class="text-gray-500 text-xs">Pacing analysis, scene rhythm, dialogue flow evaluation</p>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-3" style="color:var(--navy)">Structured Output Contracts</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">Engineered prompts to produce structured JSON output across all three providers — enforcing a consistent output schema regardless of which model handled the task. This was the non-obvious architectural decision: without defined output contracts, switching models produces incomparable results. You cannot evaluate whether feedback improved or regressed if the format changes between sessions.</p>
+            <p class="text-gray-700 leading-relaxed mb-6">The JSON schema defined categories (prose quality, structure, character voice, pacing), severity levels, specific line references, and recommended actions — making feedback not just readable but trackable and comparable across chapters.</p>
+
+            <h3 class="text-xl font-semibold mb-3" style="color:var(--navy)">Session State, Chapter Tracking, and Export</h3>
+            <p class="text-gray-700 leading-relaxed mb-4">Built chapter tracking and session state management so the system maintained context within a session — knowing which chapters had been reviewed, what feedback had been flagged, and what was pending. Built PDF and Word export so the author could archive chapter feedback, share it, or maintain a running editorial record alongside the manuscript.</p>
+            <p class="text-gray-700 leading-relaxed mb-6">Defined a v2 product roadmap covering persistent cross-chapter memory (so feedback on chapter 45 could reference character decisions from chapter 12) and highlighted track-changes output — the natural next step from structured feedback to actionable edits.</p>
+
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                <p class="text-sm font-semibold mb-2" style="color:var(--navy)">The core PM insight:</p>
+                <p class="text-gray-600 text-sm leading-relaxed">This project was not about finding the best model. It was about designing a system where any model could be swapped without breaking the experience — because the output contract, the routing logic, and the state management lived in the product layer, not inside any single model's behavior. That is the difference between using AI and building with it.</p>
+            </div>
+        </div>
+
+        <div class="buparl">
+            <p class="buparl-label">Impact</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">Live on GitHub. Structured editorial feedback at chapter scale.</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">The agent is live on GitHub and delivers structured, professional editorial feedback across prose quality, structure, voice, and pacing — consistently, at chapter scale. Feedback is comparable chapter-to-chapter, exportable, and organized by category and severity.</p>
+            <p class="text-gray-700 leading-relaxed mb-4">Beyond the specific output: this project demonstrates hands-on 0-to-1 AI product development — not prompting an existing tool, but designing and building a product layer on top of multiple AI APIs. Multi-provider routing, structured output engineering, session state management, and a defined v2 roadmap are all product decisions, not engineering ones.</p>
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+                <div class="insight">
+                    <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--accent)">Technical</p>
+                    <p class="text-gray-700 text-sm leading-relaxed">Multi-provider routing across Claude, ChatGPT, and Gemini APIs. Structured JSON output contracts. Chapter tracking and session state. PDF and Word export. Deployed to GitHub.</p>
+                </div>
+                <div class="insight">
+                    <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color:var(--accent)">Product</p>
+                    <p class="text-gray-700 text-sm leading-relaxed">0-to-1 scoping from user need to v1 definition. Routing logic as a product design decision. V2 roadmap defined: persistent cross-chapter memory and track-changes export.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="buparl">
+            <p class="buparl-label">Learning</p>
+            <h2 class="text-2xl font-bold mb-4" style="color:var(--navy)">What building this taught about AI product development</h2>
+            <p class="text-gray-700 leading-relaxed mb-4">Multi-provider routing requires structured output contracts to work. Switching models without defining expected output shapes produces inconsistent, hard-to-compare results — which undermines the core value of having routing at all. The output schema is not a nice-to-have; it is the foundation that makes the routing decision meaningful.</p>
+            <p class="text-gray-700 leading-relaxed mb-4">The PM skill in AI product development is not knowing which model is "best." It is designing the system so any model can be swapped without breaking the experience. That means the product layer — the routing logic, the output contracts, the state management — needs to be defined before the model selection is finalized.</p>
+            <p class="text-gray-700 leading-relaxed">And the clearest learning: the gap in AI tools for long-form creative work is not model capability. It is product design. The models can already do the work. What is missing is the system that makes their output reliable, comparable, organized, and continuity-aware across a document that spans months and dozens of chapters.</p>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-gray-200 flex flex-wrap items-center justify-between gap-4">
+            <div>
+                <p class="text-xs text-gray-400 mb-2">Skills demonstrated</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag">LLM Product Development</span>
+                    <span class="tag">Prompt Engineering</span>
+                    <span class="tag">0-to-1 Building</span>
+                    <span class="tag">Agentic Architecture</span>
+                    <span class="tag">Multi-Provider Routing</span>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-4">
+                <a href="https://github.com/nilanjana281/manuscript-editor" target="_blank" class="inline-flex items-center font-semibold text-sm hover:underline" style="color:var(--accent)">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+                <a href="index.html#casestudies" class="inline-flex items-center font-semibold text-sm hover:underline" style="color:var(--accent)">
+                    <i class="fas fa-arrow-left mr-2 text-xs"></i> All Case Studies
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
+<footer class="py-8 px-6 text-center text-sm" style="background:#1C2B4A; color:#8899aa">
+    <p>&copy; <span id="yr"></span> Nilanjana Chatterjee · NYC Metro · Open to Remote Senior PM Roles</p>
+</footer>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
